@@ -1,0 +1,18 @@
+import { getAllLeagues } from "../../components/API/API";
+import {call, put} from 'redux-saga/effects'
+import * as leaguesActions from './actions'
+import { availableLeaguesId  } from "./availableLeaguesId";
+
+export function* allLeaguesSaga() {
+    try {
+        const response = yield call(getAllLeagues)
+        if (response?.competitions) {
+            const fetchedLeagues = response.competitions;
+            const filteredLeagues = fetchedLeagues.filter(league => availableLeaguesId.includes(league.id))
+            yield put(leaguesActions.fetchAllLeaguesSuccess(filteredLeagues))
+        }
+    }
+    catch {
+        console.log('error')
+    }
+}
