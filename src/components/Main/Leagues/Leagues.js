@@ -3,12 +3,12 @@ import { SingleLeague, CountryFlag } from './styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAllLeaguesRequest, setSelectedLeague } from '../../../redux/allleagues/actions';
 import { useNavigate } from 'react-router-dom'
-// import { getSingleLeagueInfo } from '../../API/API';
-// import {getMatchday} from './../../API/API'
 
 const Leagues = () => {
   const leagues = useSelector(state => state.leagues.allLeagues)
   const loading = useSelector(state => state.leagues.loading)
+  const error = useSelector(state => state.leagues.error)
+  console.log(error);
   const navigate = useNavigate();
   const dispatch = useDispatch()
 
@@ -18,8 +18,7 @@ const Leagues = () => {
 
     return (
       <>
-      {/* <button onClick={async () => console.log(await getSingleTeam())}>KLIK</button> */}
-        {loading ? leagues.map((item) => {
+        {!loading && error === null ? leagues.map((item) => {
           const countryFlag = item.area.ensignUrl;
           return (
             <SingleLeague key={item.id} onClick={() => {dispatch(setSelectedLeague(item)); navigate(`/league/${item.id}`)}}>
@@ -27,7 +26,7 @@ const Leagues = () => {
               {countryFlag ? <CountryFlag src={item.area.ensignUrl} alt="Flaga kraju" /> : null}
             </SingleLeague>
           )
-        }) : ''}
+        }) : <p>{error}</p>}
       </>
     );
 };

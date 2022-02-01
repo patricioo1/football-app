@@ -2,10 +2,11 @@ import * as actionTypes from './actions'
 
 const InitialState = {
     allLeagues: [],
-    loading: false,
+    loading: true,
     selectedLeague: null,
     matchDay: [],
-    otherMatchDays: []
+    otherMatchDays: [],
+    error: null
 }
 
 export const allLeaguesReducer = (state = InitialState, action) => {
@@ -14,12 +15,17 @@ export const allLeaguesReducer = (state = InitialState, action) => {
         case actionTypes.FETCH_ALL_LEAGUES_REQUEST:
             return {
                 ...state,
-                loading: true
+                loading: false
             }
         case actionTypes.FETCH_ALL_LEAGUES_SUCCESS:
             return {
                 ...state,
                 allLeagues: action.payload
+            }
+        case actionTypes.FETCH_ALL_LEAGUES_FAILURE:
+            return {
+                ...state,
+                error: action.payload
             }
         case actionTypes.SET_SELECTED_LEAGUE:
             return {
@@ -31,25 +37,19 @@ export const allLeaguesReducer = (state = InitialState, action) => {
                 ...state,
                 selectedLeague: {
                     ...state.selectedLeague,
-                    matches: action.payload
+                    standings: action.payload
                 }
             }
         case actionTypes.FETCH_MATCHDAY:
             return {
                 ...state,
                 date: action.payload,
-                loading: true
+                loading: false
             }
         case actionTypes.SET_MATCHDAY:
             return {
                 ...state,
                 matchDay: action.payload
-            }
-        case actionTypes.FETCH_OTHER_MATCHDAYS:
-            return {
-                ...state,
-                date: action.payload,
-                loading: true
             }
         default:
             return state;

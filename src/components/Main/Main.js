@@ -1,7 +1,7 @@
 import React from 'react'
 import { ContentWrapper } from './styled';
 import Leagues from './Leagues/Leagues';
-import { Routes, Route } from 'react-router';
+import { Routes, Route } from 'react-router-dom';
 import SingleLeagueProperties from './Leagues/SingleLeagueProperties/SingleLeagueProperties';
 import Matchday from './Matchday/Matchday';
 

@@ -1,26 +1,32 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { SingleLeagueWrapper } from './styled';
-// import { Routes, Route } from 'react-router'
-// import SingleLeagueDetails from './SingleLeagueDetails/SingleLeagueDetails'
-// import SingleLeagueStandings from './SingleLeagueStandings/SingleLeagueStandings'
-// import SingleLeagueBestScorers from './SingleLeagueBestScorers/SingleLeagueBestScorers'
-import SingleLeagueNav from './SingleLeagueNav/SingleLeagueNav';
+import { Tabs } from 'antd'
+import SingleLegaueDetails from './SingleLeagueDetails/SingleLeagueDetails'
+import SingleLeagueStandings from './SingleLeagueStandings/SingleLeagueStandings';
+import SingleLeagueBestScorers from './SingleLeagueBestScorers/SingleLeagueBestScorers'
+import SingleLeaguenNav from './SingleLeagueNav/SingleLeagueNav'
 
 const SingleLeagueProperties = () => {
   const leagueDetails = useSelector(state => state.leagues.selectedLeague)
-  // const matches = useSelector(state => state.leagues.matches)
   // const loading = useSelector(state => state.leagues.loading)
-  console.log(leagueDetails.id);
+  const error = useSelector(state => state.leagues.error)
+  console.log(error);
+  const { TabPane } = Tabs;
 
   return (
     <SingleLeagueWrapper>
-      <SingleLeagueNav />
-      {/* <Routes>
-        <Route path='/league/:id/details' element={<SingleLeagueDetails />} />
-        <Route path='/league/:id/standings' element={<SingleLeagueStandings />} />
-        <Route path='/league/:id/scorers' element={<SingleLeagueBestScorers />} />
-      </Routes> */}
+      <SingleLeaguenNav defaultActiveKey={1}>
+        <TabPane tab='Details' key={1}>
+          <SingleLegaueDetails />
+        </TabPane>
+        <TabPane tab='Standings' key={2}>
+          <SingleLeagueStandings leagueName={leagueDetails.name} />
+        </TabPane>
+        <TabPane tab='Best Scorers' key={3}>
+          <SingleLeagueBestScorers />
+        </TabPane>
+      </SingleLeaguenNav>
     </SingleLeagueWrapper>
     );
 };

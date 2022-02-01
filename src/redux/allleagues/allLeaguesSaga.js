@@ -13,6 +13,7 @@ export function* allLeaguesSaga() {
         }
     }
     catch {
-        console.log('error')
+        const error = 'Could not fetch leagues'
+        yield put(leaguesActions.fetchAllLeaguesFailure(error))
     }
 }

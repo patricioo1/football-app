@@ -1,16 +1,19 @@
 import { getSingleLeagueInfo } from "../../components/API/API";
 import { call, put } from "redux-saga/effects";
-import * as LeagueActions from './actions'
+import * as leagueActions from './actions'
 
 export function* getSingleLeagueInfoSaga(action) {
     const leagueId = action.payload.id;
     try {
         const response = yield call(getSingleLeagueInfo, leagueId);
         if (response) {
-            yield put(LeagueActions.setSingleLeagueInfo(response))
+            console.log('TOTO');
+            yield put(leagueActions.setSingleLeagueInfo(response))
         }
     }
     catch {
-        console.log('error');
+        const error = 'Could not fetch league information'
+        yield put(leagueActions.fetchAllLeaguesFailure(error))
+        console.log('Could not fetch league information');
     }
 }
