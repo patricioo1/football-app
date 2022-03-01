@@ -1,7 +1,7 @@
 import { call, put } from "redux-saga/effects";
-import * as leaguesActions from './actions'
-import { getMatchday } from "../../components/API/API";
-import { availableLeaguesId } from "./availableLeaguesId";
+import * as leaguesActions from '../actions/actions'
+import { getMatchday } from "../../../components/API/API";
+import { availableLeaguesId } from "../availableLeaguesId";
 
 export function* getMatchdaySaga(action) {
     const actionDay = action.payload;

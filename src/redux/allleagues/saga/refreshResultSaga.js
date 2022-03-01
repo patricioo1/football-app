@@ -1,6 +1,6 @@
 import { put, select } from "redux-saga/effects";
 import { delay } from "redux-saga/effects";
-import { fetchMatchday } from "./actions";
+import { fetchMatchday } from "../actions/actions";
 
 
 

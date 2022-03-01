@@ -1,28 +1,40 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { SingleLeagueWrapper } from './styled';
-// import { Routes, Route } from 'react-router'
-// import SingleLeagueDetails from './SingleLeagueDetails/SingleLeagueDetails'
-// import SingleLeagueStandings from './SingleLeagueStandings/SingleLeagueStandings'
-// import SingleLeagueBestScorers from './SingleLeagueBestScorers/SingleLeagueBestScorers'
-import SingleLeagueNav from './SingleLeagueNav/SingleLeagueNav';
+import { Tabs } from 'antd'
+import SingleLegaueDetails from './SingleLeagueDetails/SingleLeagueDetails'
+import SingleLeagueStandings from './SingleLeagueStandings/SingleLeagueStandings';
+import SingleLeagueBestScorers from './SingleLeagueBestScorers/SingleLeagueBestScorers'
+import SingleLeaguenNav from './SingleLeagueNav/SingleLeagueNav'
 
 const SingleLeagueProperties = () => {
-  const leagueDetails = useSelector(state => state.leagues.selectedLeague)
-  // const matches = useSelector(state => state.leagues.matches)
-  // const loading = useSelector(state => state.leagues.loading)
-  console.log(leagueDetails.id);
+  // const leagueDetails = useSelector(state => state.leagues.selectedLeague)
+  const loading = useSelector(state => state.leagues.loading)
+  const error = useSelector(state => state.leagues.error)
+  const { TabPane } = Tabs;
 
+  const loadedData = !loading && error === null;
+
+  if (loadedData) {
   return (
     <SingleLeagueWrapper>
-      <SingleLeagueNav />
-      {/* <Routes>
-        <Route path='/league/:id/details' element={<SingleLeagueDetails />} />
-        <Route path='/league/:id/standings' element={<SingleLeagueStandings />} />
-        <Route path='/league/:id/scorers' element={<SingleLeagueBestScorers />} />
-      </Routes> */}
+      <SingleLeaguenNav defaultActiveKey={1}>
+        <TabPane tab='Details' key={1}>
+          <SingleLegaueDetails />
+        </TabPane>
+        <TabPane tab='Standings' key={2}>
+          <SingleLeagueStandings />
+        </TabPane>
+        <TabPane tab='Best Scorers' key={3}>
+          <SingleLeagueBestScorers />
+        </TabPane>
+      </SingleLeaguenNav>
     </SingleLeagueWrapper>
-    );
+    )} else {
+      return (
+        <p>{error}</p>
+      )
+    }
 };
 
 export default SingleLeagueProperties;

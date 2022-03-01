@@ -1,32 +1,22 @@
 export const getAllLeagues = async () => {
-    try {
-        const response = await fetch(new Request(`https://api.football-data.org/v2/competitions`, {
-            headers: {
-                'X-Auth-Token': `${process.env.REACT_APP_API_KEY}`
-            }
-        }));
-        if (response.status === 200) {
-            return await response.json()
+    const response = await fetch(new Request(`https://api.football-data.org/v2/competitions`, {
+        headers: {
+            'X-Auth-Token': `${process.env.REACT_APP_API_KEY}`
         }
-    }
-    catch {
-        console.log('error')
+    }));
+    if (response.status === 200) {
+        return await response.json()
     }
 }
 
 export const getSingleLeagueInfo = async (id) => {
-    try {
-        const response = await fetch(new Request(`https://api.football-data.org/v2/competitions/${id}/teams`, {
-            headers: {
-                'X-Auth-Token': `${process.env.REACT_APP_API_KEY}`
-            }
-        }));
-        if (response.status === 200) {
-            return await response.json();
+    const response = await fetch(new Request(`https://api.football-data.org/v2/competitions/${id}/standings`, {
+        headers: {
+            'X-Auth-Token': `${process.env.REACT_APP_API_KEY}`
         }
-    }
-    catch {
-        console.log('error');
+    }));
+    if (response.status === 200) {
+        return await response.json();
     }
 }
 

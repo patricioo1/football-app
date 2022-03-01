@@ -1,7 +1,7 @@
-import { getAllLeagues } from "../../components/API/API";
+import { getAllLeagues } from "../../../components/API/API";
 import {call, put} from 'redux-saga/effects'
-import * as leaguesActions from './actions'
-import { availableLeaguesId  } from "./availableLeaguesId";
+import * as leaguesActions from '../actions/actions'
+import { availableLeaguesId  } from "../availableLeaguesId";
 
 export function* allLeaguesSaga() {
     try {
@@ -13,6 +13,7 @@ export function* allLeaguesSaga() {
         }
     }
     catch {
-        console.log('error')
+        const error = 'Could not fetch leagues'
+        yield put(leaguesActions.fetchAllLeaguesFailure(error))
     }
 }
