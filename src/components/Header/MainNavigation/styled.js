@@ -15,7 +15,4 @@ export const Nav = styled.div`
         cursor: pointer;
         font-weight: 600;
     }
-    .active {
-        background-color: #5d5dc9;
-    }
 `;
