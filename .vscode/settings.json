@@ -1,0 +1,6 @@
+{
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "editor.fontFamily": "source code pro",
+  "editor.fontSize": 16,
+  "files.autoSave": "afterDelay"
+}

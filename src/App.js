@@ -1,18 +1,16 @@
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
-import { BrowserRouter as Router } from 'react-router-dom';
-import GlobalStyle from "./globalStyles";
+import { BrowserRouter as Router } from 'react-router-dom'
+import Header from './components/Header/Header'
+import Main from './components/Main/Main'
+import GlobalStyle from './globalStyles'
 
-function App() {
-  return (
+const App = () => (
     <div className="App">
       <GlobalStyle />
       <Router>
-      <Header />
-      <Main/>
+        <Header />
+        <Main />
       </Router>
     </div>
-  );
-}
+  )
 
-export default App;
+export default App
