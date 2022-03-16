@@ -1,19 +1,19 @@
 import React from 'react';
 import { useNavigate } from 'react-router'
-import { Nav } from './styled'
+import * as s from './styled'
 
 const MainNavigation = () => {
   const navigate = useNavigate()
 
   return (
-    <Nav>
-      <button type='button' onClick={() => navigate('/leagues')}>
+    <s.Nav>
+      <s.NavButton type='button' onClick={() => navigate('/leagues')}>
         Leagues
-      </button>
-      <button type='button' onClick={() => navigate('/')}>
+      </s.NavButton>
+      <s.NavButton type='button' onClick={() => navigate('/')}>
         Matches
-      </button>
-    </Nav>
+      </s.NavButton>
+    </s.Nav>
   )
 }
 

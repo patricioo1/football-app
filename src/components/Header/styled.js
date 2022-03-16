@@ -5,34 +5,22 @@ export const HeaderWrapper = styled.header`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  height: auto;
+  min-height: 90px;
   width: 100%;
-  background-color: lightgray;
-  padding: 10px 10px 0px 10px;
+  padding: 15px 39px 15px 17px;
+  border-bottom: 2px solid rgba(196, 196, 196, .2);
 `
 
 export const LogoWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 57px;
   width: 150px;
+  margin-left: 17px;
   img {
     width: 100%;
     height: auto;
-  }
-`
-
-export const DateApp = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 150px;
-  font-size: 0.8em;
-  text-align: center;
-  font-weight: 600;
-  span {
-    text-transform: capitalize;
   }
 `

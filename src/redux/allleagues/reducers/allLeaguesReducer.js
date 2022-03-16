@@ -9,32 +9,24 @@ const InitialState = {
   singleLeague: [],
 }
 
-export const allLeaguesReducer = (action, state = InitialState) => {
-  if (!action || !action?.type) {
-    return state
-  }
+export const allLeaguesReducer = (state = InitialState, action = null) => {
+  console.log(action);
   switch (action.type) {
     case actionTypes.FETCH_ALL_LEAGUES_REQUEST:
       return {
-        ...state,
-        loading: false,
-        error: null,
+        ...state
       }
     case actionTypes.FETCH_ALL_LEAGUES_SUCCESS:
       return {
         ...state,
         allLeagues: action.payload,
+        loading: false
       }
     case actionTypes.FETCH_ALL_LEAGUES_FAILURE:
       return {
         ...state,
-        error: action.payload,
+        error: action.payload
       }
-    // case actionTypes.FETCH_SINGLE_LEAGUE_INFO:
-    //     return {
-    //         ...state,
-    //         loading: false
-    //     }
     default:
       return state
   }

@@ -6,21 +6,19 @@ const InitialState = {
   loading: true,
 }
 
-export const singleLeagueInfoReducer = (action, state = InitialState) => {
-  if (!action || !action?.type) {
-    return state
-  }
+export const singleLeagueInfoReducer = (state = InitialState, action = null) => {
+  console.log(action.type);
   switch (action.type) {
     case actionTypes.SET_SELECTED_LEAGUE:
       return {
         ...state,
-        selectedLeague: action.payload,
+        selectedLeague: action.payload
       }
     case actionTypes.SET_SINGLE_LEAGUE_INFO:
       return {
         ...state,
         loading: false,
-        singleLeague: action.payload,
+        singleLeague: action.payload
       }
     default:
       return state

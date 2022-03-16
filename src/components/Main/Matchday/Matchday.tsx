@@ -28,12 +28,12 @@ const Matchday = () => {
         <s.ButtonLeft
           onClick={() => setDate(dayjs(date).subtract(1, 'day').toDate())}
         />
-        <p>{date.toISOString().slice(0, 10)}</p>
+        <s.DateApp>{date.toISOString().slice(0, 10)} {new Date().toLocaleString('en-EN', { weekday: 'long' })}</s.DateApp>
         <s.ButtonRight
           onClick={() => setDate(dayjs(date).add(1, 'day').toDate())}
         />
       </s.MatchdayNavigation>
-      {matchday ? matchday
+      {matchday && matchday
         .sort((a: MatchdayProperties, b: MatchdayProperties) => (a.competition.name > b.competition.name ? 1 : -1))
         .map((item: MatchdayProperties) => (
           <s.SingleLeagueWrapper key={item.id}>
@@ -44,23 +44,21 @@ const Matchday = () => {
                   alt="Country flag"
                 />
               ) : null}
-              <p>{`${item.competition.area.name}: ${item.competition.name}`}</p>
+              <p>{item.competition.name}</p>
             </s.LeagueTitle>
             <s.TeamWrapper>
-              <s.TeamTitle>
-                <p>{item.homeTeam.name}</p>
-                <p>{item.awayTeam.name}</p>
-              </s.TeamTitle>
-              <s.MatchInfo>
-                <p>{item.status === 'POSTPONED' ? item.status : ''}</p>
-              </s.MatchInfo>
-              <s.Score>
+              <s.SingleTeam>{item.homeTeam.name}</s.SingleTeam>
+                <s.Score>
                 <span>{item.matchScore.homeTeam}</span>
                 <span>{item.matchScore.awayTeam}</span>
-              </s.Score>
+                </s.Score>
+              <s.SingleTeam>{item.awayTeam.name}</s.SingleTeam>
             </s.TeamWrapper>
+              <s.MatchInfo>
+                <p>{item.status === 'POSTPONED' ? item.status : null}</p>
+              </s.MatchInfo>
           </s.SingleLeagueWrapper>
-        )) : <Loading />}
+        ))}
     </s.MatchdayWrapper>
   )
 }

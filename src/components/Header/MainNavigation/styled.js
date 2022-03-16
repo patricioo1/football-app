@@ -4,15 +4,19 @@ export const Nav = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 10px 10px 0px 10px;
-  p {
-    display: flex;
-    justify-content: center;
-    width: 45%;
-    height: 100%;
-    text-transform: uppercase;
-    padding-bottom: 10px;
-    cursor: pointer;
-    font-weight: 600;
-  }
+  padding: 28px 30px 32px 30px;
+`
+
+export const NavButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 154px;
+  height: 40px;
+  color: #4361EE;
+  background-color: rgba(67, 97, 238, .3);
+  cursor: pointer;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
 `

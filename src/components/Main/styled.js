@@ -7,6 +7,5 @@ export const ContentWrapper = styled.main`
   width: 100%;
   height: 90vh;
   min-height: 90vh;
-  background-color: #f3f6f8;
   font-weight: 600;
 `

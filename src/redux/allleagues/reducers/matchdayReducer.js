@@ -5,21 +5,19 @@ const InitialState = {
   loading: true,
 }
 
-export const matchDayReducer = (action, state = InitialState) => {
-  if (!action || !action?.type) {
-    return state
-  }
+export const matchDayReducer = (state = InitialState, action = null) => {
+  console.log(action.type);
   switch (action.type) {
     case actionTypes.FETCH_MATCHDAY:
       return {
         ...state,
-        date: action.payload,
-        loading: false,
+        date: action.payload
       }
     case actionTypes.SET_MATCHDAY:
       return {
         ...state,
         matchDay: action.payload,
+        loading: false
       }
     default:
       return state
