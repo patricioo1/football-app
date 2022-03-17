@@ -6,7 +6,6 @@ const InitialState = {
 }
 
 export const matchDayReducer = (state = InitialState, action = null) => {
-  console.log(action.type);
   switch (action.type) {
     case actionTypes.FETCH_MATCHDAY:
       return {

@@ -6,4 +6,6 @@ export const LoadingWrapper = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+  color: blue;
+  flex: 1;
 `

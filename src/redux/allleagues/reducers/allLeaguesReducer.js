@@ -3,14 +3,10 @@ import * as actionTypes from '../actions/actions'
 const InitialState = {
   allLeagues: [],
   loading: true,
-  selectedLeague: null,
-  matchDay: [],
-  error: null,
-  singleLeague: [],
+  error: null
 }
 
 export const allLeaguesReducer = (state = InitialState, action = null) => {
-  console.log(action);
   switch (action.type) {
     case actionTypes.FETCH_ALL_LEAGUES_REQUEST:
       return {

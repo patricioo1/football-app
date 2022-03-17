@@ -7,7 +7,6 @@ const InitialState = {
 }
 
 export const singleLeagueInfoReducer = (state = InitialState, action = null) => {
-  console.log(action.type);
   switch (action.type) {
     case actionTypes.SET_SELECTED_LEAGUE:
       return {

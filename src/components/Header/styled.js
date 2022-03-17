@@ -19,8 +19,24 @@ export const LogoWrapper = styled.div`
   height: 57px;
   width: 150px;
   margin-left: 17px;
-  img {
-    width: 100%;
-    height: auto;
-  }
+`
+export const Logo = styled.img`
+  width: 100%;
+  height: auto;
+`
+
+export const CalendarWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+`
+
+export const CalendarIcon = styled.img`
+  width: 27px;
+  height: 27px;
 `

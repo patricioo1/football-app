@@ -5,7 +5,7 @@ export const ContentWrapper = styled.main`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 90vh;
+  height: auto;
   min-height: 90vh;
   font-weight: 600;
 `

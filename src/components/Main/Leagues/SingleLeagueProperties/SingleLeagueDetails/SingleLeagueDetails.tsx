@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { CountryFlag, Details, SingleLeagueTitle } from './styled'
 import { RootState } from '../../../../../redux/rootReducer'
 
-const SingleLeagueDetails = () => {
+const SingleLeagueDetails: React.FC = () => {
   const leagueDetails = useSelector(
     (state: RootState) => state.singleLeagueInfo.selectedLeague
   )

@@ -1,11 +1,11 @@
 import React from 'react'
 import { SpinnerCircular } from 'spinners-react'
-import { LoadingWrapper } from './styled'
+import * as s from './styled'
 
 const Loading = () => (
-    <LoadingWrapper>
-      <SpinnerCircular style={{ width: '70px', color: 'black' }} />
-    </LoadingWrapper>
+    <s.LoadingWrapper>
+      <SpinnerCircular style={{ width: '70px', color: '#4361EE' }} />
+    </s.LoadingWrapper>
   )
 
 export default Loading

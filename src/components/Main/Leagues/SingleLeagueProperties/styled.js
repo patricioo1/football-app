@@ -1,7 +1,23 @@
 import styled from 'styled-components'
+import { Tabs } from 'antd'
 
-export const SingleLeagueWrapper = styled.div`
+export const SingleLeagueNavigation = styled(Tabs)`
+background-color: pink;
   width: 100%;
-  height: 100vh;
-  /* background-color: blue; */
+  height: auto;
+  min-height: 50vh;
+  .ant-tabs-nav {
+    position: static;
+    padding: 0 5px 0 5px;
+  }
+  .ant-tabs-nav-list {
+    width: 100%;
+  }
+  .ant-tabs-tab-btn {
+    width: 100%;
+    text-align: center;
+  }
+  .ant-tabs-tab {
+    width: 33%;
+  }
 `

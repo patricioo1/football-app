@@ -1,13 +1,17 @@
 import React from 'react';
 import Logo from '../../images/default-monochrome.svg'
-import { HeaderWrapper, LogoWrapper } from './styled'
+import CalendarIcon from '../../images/calendarIcon.svg'
+import * as s from './styled'
 
 const Header = () => (
-    <HeaderWrapper>
-      <LogoWrapper>
-        <img src={Logo} alt="Logo" />
-      </LogoWrapper>
-    </HeaderWrapper>
+    <s.HeaderWrapper>
+      <s.LogoWrapper>
+        <s.Logo src={Logo} alt="Logo" />
+      </s.LogoWrapper>
+      <s.CalendarWrapper>
+        <s.CalendarIcon src={CalendarIcon} alt="Calendar" />
+      </s.CalendarWrapper>
+    </s.HeaderWrapper>
   )
 
 export default Header

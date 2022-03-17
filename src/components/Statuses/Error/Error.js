@@ -1,10 +1,10 @@
 import React from 'react'
-import { ErrorWrapper } from './styled'
+import * as s from './styled'
 
 const Error = () => (
-  <ErrorWrapper>
+  <s.ErrorWrapper>
     <p>We could not fetch your data...</p>
-  </ErrorWrapper>
+  </s.ErrorWrapper>
 )
 
 export default Error
