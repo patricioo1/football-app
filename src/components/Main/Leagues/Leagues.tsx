@@ -9,7 +9,6 @@ import {
 import { RootState } from '../../../redux/rootReducer'
 import Loading from '../../Statuses/Loading/Loading'
 import Error from '../../Statuses/Error/Error'
-import { LeagueProperties } from './types'
 
 const Leagues: React.FC = () => {
   const leagues = useSelector((state: RootState) => state.leagues.allLeagues)
@@ -22,13 +21,13 @@ const Leagues: React.FC = () => {
     dispatch(fetchAllLeaguesRequest())
   }, [loading, dispatch])
 
-  const loadedData: boolean = !loading && error === null && leagues
+  const loadedData = !loading && error === null && leagues
 
   if (loading) return <Loading />
   if (error) return <Error />
   return (
-    loadedData ? (
-      leagues.map((item: LeagueProperties) => {
+    loadedData ? <>{
+      leagues.map((item) => {
         const countryFlag = item.area.ensignUrl
         return (
           <s.SingleLeague
@@ -50,7 +49,7 @@ const Leagues: React.FC = () => {
           </s.SingleLeague>
         )
       })
-    ) : (
+     }</> : (
       <p>{error}</p>
     )
   )

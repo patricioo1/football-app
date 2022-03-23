@@ -50,6 +50,9 @@
       }
     ],
     "react/jsx-uses-react": "error",
-     "react/jsx-uses-vars": "error"
+    "react/jsx-uses-vars": "error",
+    "default-param-last": "off",
+    "@typescript-eslint/default-param-last": ["error"],
+    "@typescript-eslint/ban-ts-comment": "off"
   }
 }

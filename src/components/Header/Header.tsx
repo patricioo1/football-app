@@ -3,7 +3,7 @@ import Logo from '../../images/default-monochrome.svg'
 import CalendarIcon from '../../images/calendarIcon.svg'
 import * as s from './styled'
 
-const Header = () => (
+const Header: React.FC = () => (
     <s.HeaderWrapper>
       <s.LogoWrapper>
         <s.Logo src={Logo} alt="Logo" />

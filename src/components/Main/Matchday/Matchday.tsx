@@ -9,10 +9,14 @@ import { MatchdayProperties } from './types'
 
 dayjs().format()
 
-const Matchday = () => {
+const Matchday: React.FC = () => {
   const [date, setDate] = useState(new Date())
   const dispatch = useDispatch()
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
   const loading = useSelector((state: RootState) => state.matchday.loading)
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
   const matchday = useSelector((state: RootState) => state.matchday.matchDay)
 
   useEffect(() => {

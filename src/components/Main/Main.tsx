@@ -6,12 +6,13 @@ import SingleLeagueProperties from './Leagues/SingleLeagueProperties/SingleLeagu
 import Matchday from './Matchday/Matchday'
 import MainNavigation from '../Header/MainNavigation/MainNavigation'
 
-const Main = () => (
+
+const Main: React.FC = () => (
   <ContentWrapper>
     <MainNavigation />
     <Routes>
       <Route path="/leagues" element={<Leagues />} />
-      <Route exact path="/" element={<Matchday />} />
+      <Route path="/" element={<Matchday />} />
       <Route path="/league/:id" element={<SingleLeagueProperties />} />
     </Routes>
   </ContentWrapper>

@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router'
 import * as s from './styled'
 
-const MainNavigation = () => {
+const MainNavigation: React.FC = () => {
   const navigate = useNavigate()
 
   return (

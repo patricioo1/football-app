@@ -1,11 +1,20 @@
 import * as actionTypes from '../actions/actions'
+import { Actions } from './types'
+
+// type State = {
+//   matchDay: never[],
+//   loading: boolean
+// }
 
 const InitialState = {
   matchDay: [],
   loading: true,
 }
 
-export const matchDayReducer = (state = InitialState, action = null) => {
+export const matchDayReducer = (state = InitialState, action: Actions | null = null) => {
+  if (!action) {
+    return state
+  }
   switch (action.type) {
     case actionTypes.FETCH_MATCHDAY:
       return {

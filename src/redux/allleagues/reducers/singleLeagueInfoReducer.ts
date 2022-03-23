@@ -1,12 +1,17 @@
 import * as actionTypes from '../actions/actions'
+import { Actions } from './types'
 
 const InitialState = {
   selectedLeague: null,
   singleLeague: [],
   loading: true,
+  error: null
 }
 
-export const singleLeagueInfoReducer = (state = InitialState, action = null) => {
+export const singleLeagueInfoReducer = (state = InitialState, action: Actions | null = null) => {
+  if (!action) {
+    return state
+  }
   switch (action.type) {
     case actionTypes.SET_SELECTED_LEAGUE:
       return {
@@ -16,8 +21,8 @@ export const singleLeagueInfoReducer = (state = InitialState, action = null) => 
     case actionTypes.SET_SINGLE_LEAGUE_INFO:
       return {
         ...state,
-        loading: false,
-        singleLeague: action.payload
+        singleLeague: action.payload,
+        loading: false
       }
     default:
       return state

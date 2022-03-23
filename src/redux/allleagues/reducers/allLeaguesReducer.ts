@@ -1,4 +1,22 @@
 import * as actionTypes from '../actions/actions'
+import { Actions } from './types'
+
+type LeagueType = {
+  id: number,
+  name: string,
+  code: string
+  area: {
+    name: string,
+    ensignUrl: string,
+    countryCode: string
+  }
+}
+
+type State = {
+  allLeagues: LeagueType[] | undefined | null,
+  loading: boolean,
+  error: null | undefined
+}
 
 const InitialState = {
   allLeagues: [],
@@ -6,8 +24,11 @@ const InitialState = {
   error: null
 }
 
-export const allLeaguesReducer = (state = InitialState, action = null) => {
-  switch (action.type) {
+export const allLeaguesReducer = (state: State = InitialState, action: Actions | null = null): State => {
+  if (!action) {
+    return state
+  }
+  switch(action.type) {
     case actionTypes.FETCH_ALL_LEAGUES_REQUEST:
       return {
         ...state
