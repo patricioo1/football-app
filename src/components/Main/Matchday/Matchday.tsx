@@ -12,11 +12,7 @@ dayjs().format()
 const Matchday: React.FC = () => {
   const [date, setDate] = useState(new Date())
   const dispatch = useDispatch()
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
   const loading = useSelector((state: RootState) => state.matchday.loading)
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
   const matchday = useSelector((state: RootState) => state.matchday.matchDay)
 
   useEffect(() => {
@@ -37,7 +33,7 @@ const Matchday: React.FC = () => {
           onClick={() => setDate(dayjs(date).add(1, 'day').toDate())}
         />
       </s.MatchdayNavigation>
-      {matchday && matchday
+      {matchday ? matchday
         .sort((a: MatchdayProperties, b: MatchdayProperties) => (a.competition.name > b.competition.name ? 1 : -1))
         .map((item: MatchdayProperties) => (
           <s.SingleLeagueWrapper key={item.id}>
@@ -62,7 +58,7 @@ const Matchday: React.FC = () => {
                 <p>{item.status === 'POSTPONED' ? item.status : null}</p>
               </s.MatchInfo>
           </s.SingleLeagueWrapper>
-        ))}
+        )) : <Loading />}
     </s.MatchdayWrapper>
   )
 }

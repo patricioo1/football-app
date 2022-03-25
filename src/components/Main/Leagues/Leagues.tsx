@@ -18,7 +18,7 @@ const Leagues: React.FC = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(fetchAllLeaguesRequest())
+    dispatch(fetchAllLeaguesRequest(undefined))
   }, [loading, dispatch])
 
   const loadedData = !loading && error === null && leagues

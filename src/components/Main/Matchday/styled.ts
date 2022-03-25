@@ -58,7 +58,7 @@ export const DateApp = styled.p`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 94px;
+  width: 100px;
   font-weight: 600;
   color: #A9A9A9;
 `

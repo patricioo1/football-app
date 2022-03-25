@@ -1,20 +1,24 @@
-import * as actionTypes from '../actions/actions'
-import { Actions } from './types'
+import * as actionTypes from '../../actions/actions'
+import { Actions } from '../types'
+import { MatchdayProperties } from './matchdayTypes'
 
-// type State = {
-//   matchDay: never[],
-//   loading: boolean
-// }
+type State = {
+  matchDay: MatchdayProperties[] | null | undefined,
+  loading: boolean,
+  date: null | undefined | Date
+}
 
 const InitialState = {
   matchDay: [],
   loading: true,
+  date: null
 }
 
-export const matchDayReducer = (state = InitialState, action: Actions | null = null) => {
+export const matchDayReducer = (state: State = InitialState, action: Actions | null = null): State => {
   if (!action) {
     return state
   }
+  console.log(action)
   switch (action.type) {
     case actionTypes.FETCH_MATCHDAY:
       return {
