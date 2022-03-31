@@ -1,9 +1,9 @@
 import * as actionTypes from '../../actions/actions'
-import { LeagueType, AppError } from '../../../../components/API/types'
+import { AllLeaguesType, AppError } from '../../../../components/API/types'
 import { AllLeaguesAction } from './allLeaguesTypes'
 
 type State = {
-  allLeagues: LeagueType[] | undefined | null,
+  allLeagues: AllLeaguesType[] | undefined | null,
   loading: boolean,
   error: AppError | null | undefined
 }
@@ -26,7 +26,7 @@ export const allLeaguesReducer = (state: undefined | State, action: AllLeaguesAc
     case actionTypes.FETCH_ALL_LEAGUES_SUCCESS:
       return {
         ...state,
-        allLeagues: action.payload as LeagueType[] | undefined | null,
+        allLeagues: action.payload as AllLeaguesType[] | undefined | null,
         loading: false
       }
     case actionTypes.FETCH_ALL_LEAGUES_FAILURE:

@@ -10,7 +10,7 @@ export function* getSingleLeagueInfoSaga(action) {
       yield put(leagueActions.setSingleLeagueInfo(response))
     }
   } catch {
-    const error = 'Could not fetch league information'
-    yield put(leagueActions.fetchAllLeaguesFailure(error))
+    const error = 'Could not fetch league informations'
+    yield put(leagueActions.fetchSingleLeagueInfoFailure(error))
   }
 }

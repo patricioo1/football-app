@@ -54,7 +54,7 @@ export const ButtonRight = styled(NavButtons)`
   }
 `
 
-export const DateApp = styled.p`
+export const MatchdayDate = styled.p`
   display: flex;
   justify-content: center;
   align-items: center;

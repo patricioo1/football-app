@@ -1,36 +1,44 @@
 import * as actionTypes from '../../actions/actions'
-import { Actions } from '../types'
-import { MatchdayProperties } from './matchdayTypes'
+import { MatchdayProperties, AppError } from '../../../../components/API/types'
+import { MatchdayActions } from './actionTypes'
+
+type DateParams = Date | null | undefined | string
 
 type State = {
   matchDay: MatchdayProperties[] | null | undefined,
   loading: boolean,
-  date: null | undefined | Date
+  date: DateParams,
+  error: AppError | null | undefined
 }
 
-const InitialState = {
+const initialState: State = {
   matchDay: [],
   loading: true,
-  date: null
+  date: null,
+  error: null
 }
 
-export const matchDayReducer = (state: State = InitialState, action: Actions | null = null): State => {
-  if (!action) {
-    return state
+export const matchDayReducer = (state: undefined | State, action: MatchdayActions): State => {
+  if (!state) {
+    return initialState
   }
-  console.log(action)
   switch (action.type) {
     case actionTypes.FETCH_MATCHDAY:
       return {
         ...state,
-        date: action.payload
+        date: action.payload as DateParams
       }
     case actionTypes.SET_MATCHDAY:
       return {
         ...state,
-        matchDay: action.payload,
+        matchDay: action.payload as MatchdayProperties[],
         loading: false
       }
+    case actionTypes.FETCH_MATCHDAY_FAILURE:
+      return {
+        ...state,
+        error: action.payload as AppError
+      }  
     default:
       return state
   }

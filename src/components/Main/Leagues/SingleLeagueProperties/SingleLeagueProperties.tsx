@@ -7,14 +7,10 @@ import SingleLeagueBestScorers from './SingleLeagueBestScorers/SingleLeagueBestS
 import { RootState } from '../../../../redux/rootReducer'
 import * as s from './styled'
 
-type Keys = {
-  defaultActiveKey?: string
-}
-
-const SingleLeagueProperties: React.FC<Keys> = () => {
+const SingleLeagueProperties: React.FC = () => {
   const [tab, setTab] = useState('1')
-  const loading = useSelector((state: RootState) => state.leagues.loading)
-  const error = useSelector((state: RootState) => state.leagues.error)
+  const loading = useSelector((state: RootState) => state.singleLeagueInfo.loading)
+  const error = useSelector((state: RootState) => state.singleLeagueInfo.error)
   const { TabPane } = Tabs
 
   const loadedData: boolean = !loading && error === null

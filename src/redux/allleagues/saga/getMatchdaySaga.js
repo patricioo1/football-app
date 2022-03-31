@@ -31,6 +31,7 @@ export function* getMatchdaySaga(action) {
       yield put(leaguesActions.setMatchday(parsedResponse))
     }
   } catch {
-    console.log('error')
+    const error = 'Could not fetch matchday informations'
+    yield put(leaguesActions.fetchMatchdayFailure(error))
   }
 }

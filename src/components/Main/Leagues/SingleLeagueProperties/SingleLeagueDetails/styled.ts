@@ -22,8 +22,8 @@ export const SingleLeagueTitle = styled.div`
 `
 
 export const CountryFlag = styled.img`
-  width: 25px;
-  height: 25px;
-  border-radius: 7px;
+  width: auto;
+  height: 20px;
+  border-radius: 3px;
   margin-right: 5px;
 `

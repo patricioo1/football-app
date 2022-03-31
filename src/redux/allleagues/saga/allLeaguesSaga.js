@@ -14,7 +14,7 @@ export function* allLeaguesSaga() {
       yield put(leaguesActions.fetchAllLeaguesSuccess(filteredLeagues))
     }
   } catch {
-    const error = 'Could not fetch leagues'
+    const error = 'Could not fetch leagues informations'
     yield put(leaguesActions.fetchAllLeaguesFailure(error))
   }
 }

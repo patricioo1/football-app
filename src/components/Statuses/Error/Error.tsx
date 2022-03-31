@@ -1,9 +1,9 @@
 import React from 'react'
 import * as s from './styled'
 
-const Error = () => (
+const Error: React.FC = ({ children }) => (
   <s.ErrorWrapper>
-    <p>We could not fetch your data...</p>
+    {children}
   </s.ErrorWrapper>
 )
 

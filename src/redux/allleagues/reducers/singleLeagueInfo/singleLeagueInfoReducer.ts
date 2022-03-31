@@ -1,18 +1,25 @@
+import { AppError, SelectedLeagueType } from '../../../../components/API/types'
 import * as actionTypes from '../../actions/actions'
 import { Actions } from '../types'
 
-const InitialState = {
+type State = {
+  selectedLeague: SelectedLeagueType | undefined | null,
+  singleLeague: unknown,
+  loading: boolean,
+  error: AppError | null | undefined
+}
+
+const initialState = {
   selectedLeague: null,
   singleLeague: [],
   loading: true,
   error: null
 }
 
-export const singleLeagueInfoReducer = (state = InitialState, action: Actions | null = null) => {
+export const singleLeagueInfoReducer = (state: State = initialState, action: Actions | null = null): State => {
   if (!action) {
     return state
   }
-  console.log(action)
   switch (action.type) {
     case actionTypes.SET_SELECTED_LEAGUE:
       return {
@@ -25,6 +32,11 @@ export const singleLeagueInfoReducer = (state = InitialState, action: Actions | 
         singleLeague: action.payload,
         loading: false
       }
+    case actionTypes.FETCH_SINGLE_LEAGUE_INFO_FAILURE:
+      return {
+        ...state,
+        error: action.payload
+      }  
     default:
       return state
   }

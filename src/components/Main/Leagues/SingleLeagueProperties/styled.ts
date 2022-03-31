@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import { Tabs } from 'antd'
 
 export const SingleLeagueNavigation = styled(Tabs)`
-background-color: pink;
   width: 100%;
   height: auto;
   min-height: 50vh;

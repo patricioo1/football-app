@@ -24,7 +24,7 @@ const Leagues: React.FC = () => {
   const loadedData = !loading && error === null && leagues
 
   if (loading) return <Loading />
-  if (error) return <Error />
+  if (error) return <Error><p>{error}</p></Error>
   return (
     loadedData ? <>{
       leagues.map((item) => {

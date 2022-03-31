@@ -45,3 +45,20 @@ export const getMatchday = async (ids, date) => {
   }
   return null;
 }
+
+export const getSingleLeagueStandings = async id => {
+  const response = await fetch(
+    new Request(
+      `https://api.football-data.org/v2/competitions/${id}/standings`,
+      {
+        headers: {
+          'X-Auth-Token': `${process.env.REACT_APP_API_KEY}`,
+        },
+      }
+    )
+  )
+  if (response.status === 200) {
+    return response.json()
+  }
+  return null;
+}
