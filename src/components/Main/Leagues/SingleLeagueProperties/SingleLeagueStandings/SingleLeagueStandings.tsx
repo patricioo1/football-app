@@ -7,7 +7,7 @@ import { fetchSingleLeagueStandings } from '../../../../../redux/allleagues/acti
 const SingleLeagueStandings = () => {
   const singleLeagueId = useSelector((state: RootState) => state.singleLeagueInfo.selectedLeague?.id)
   const leagueName = useSelector((state: RootState) => state.standings.singleLeagueStandings?.competition)
-  const leagueStandings = useSelector((state: RootState) => state.standings.singleLeagueStandings?.standings[0].table)
+  const leagueStandings = useSelector((state: RootState) => state.standings.singleLeagueStandings?.standings[0].table);
 
   const dispatch = useDispatch();
 
@@ -40,7 +40,7 @@ const SingleLeagueStandings = () => {
           <s.SingleTeamStats>
             <s.TeamPoints>{league.playedGames}</s.TeamPoints>
             <s.TeamPoints>{league.goalDifference}</s.TeamPoints>
-            <s.TeamPoints points>{league.points}</s.TeamPoints>
+            <s.TeamPoints points='true'>{league.points}</s.TeamPoints>
           </s.SingleTeamStats>
         </s.SingleLeagueProperties>
       ))}
