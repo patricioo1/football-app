@@ -62,3 +62,19 @@ export const getSingleLeagueStandings = async id => {
   }
   return null;
 }
+
+export const getBestScorers = async code => {
+  const response = await fetch(
+    new Request(
+      `http://api.football-data.org/v2/competitions/${code}/scorers`, {
+        headers: {
+          'X-Auth-Token': `${process.env.REACT_APP_API_KEY}`,
+        },
+      }
+    )
+  )
+  if (response.status === 200) {
+    return response.json()
+  }
+  return null
+}
