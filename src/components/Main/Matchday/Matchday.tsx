@@ -6,7 +6,6 @@ import * as s from './styled'
 import Loading from '../../Statuses/Loading/Loading'
 import Error from '../../Statuses/Error/Error'
 import { RootState } from '../../../redux/rootReducer'
-// import { MatchdayProperties } from './types'
 
 dayjs().format()
 
@@ -16,7 +15,6 @@ const Matchday: React.FC = () => {
   const loading = useSelector((state: RootState) => state.matchday.loading)
   const matchday = useSelector((state: RootState) => state.matchday.matchDay)
   const error = useSelector((state: RootState) => state.matchday.error)
-  console.log(matchday);
 
   useEffect(() => {
     if (date) {
