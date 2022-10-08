@@ -18,8 +18,7 @@ export const singleLeagueStandingsReducer = (state: undefined | State, action: S
     if (!state) {
         return initialState
     }
-    console.log(action)
-    switch (action.type) {
+    switch (action?.type) {
         case actionTypes.FETCH_SINGLE_LEAGUE_STANDINGS:
             return {
                 ...state,
@@ -28,12 +27,12 @@ export const singleLeagueStandingsReducer = (state: undefined | State, action: S
         case actionTypes.SET_SINGLE_LEAGUE_STANDINGS:
             return {
                 ...state,
-                singleLeagueStandings: action.payload as LeagueStandings
+                singleLeagueStandings: action?.payload as LeagueStandings
             }
         case actionTypes.SINGLE_LEAGUE_STANDINGS_FAILURE:
             return {
                 ...state,
-                error: action.payload as AppError
+                error: action?.payload as AppError
             }    
         default:
             return state

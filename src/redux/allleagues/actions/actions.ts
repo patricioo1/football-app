@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions'
-import { AllLeaguesType, MatchdayProperties, AppError, LeagueStandings } from '../../../components/API/types'
+import { AllLeaguesType, MatchdayProperties, AppError, LeagueStandings, BestScorer } from '../../../components/API/types'
 
 export const FETCH_ALL_LEAGUES_REQUEST = 'leagues/FETCH_ALL_LEAGUES_REQUEST'
 export const FETCH_ALL_LEAGUES_SUCCESS = 'leagues/FETCH_ALL_LEAGUES_SUCCESS'
@@ -17,6 +17,11 @@ export const FETCH_SINGLE_LEAGUE_STANDINGS = 'leagues/FETCH_SINGLE_LEAGUE_STANDI
 export const SET_SINGLE_LEAGUE_STANDINGS = 'leagues/SET_SINGLE_LEAGUE_STANDINGS'
 export const SINGLE_LEAGUE_STANDINGS_FAILURE = 'leagues/SINGLE_LEAGUE_STANDINGS_FAILURE'
 
+export const FETCH_BEST_SCORERS = 'leagues/FETCH_BEST_SCORERS'
+export const SET_BEST_SCORERS = 'leagues/SET_BEST_SCORERS'
+export const BEST_SCORERS_FAILURE = 'leagues/BEST_SCORERS_FAILURE'
+export const SET_SINGLE_SCORER = 'leagues/SET_SINGLE_SCORER'
+
 export const fetchAllLeaguesRequest = createAction<undefined>(FETCH_ALL_LEAGUES_REQUEST)
 export const fetchAllLeaguesSuccess = createAction<AllLeaguesType[]>(FETCH_ALL_LEAGUES_SUCCESS)
 export const fetchAllLeaguesFailure = createAction<AppError>(FETCH_ALL_LEAGUES_FAILURE)
@@ -32,3 +37,8 @@ export const fetchMatchdayFailure = createAction<AppError>(FETCH_MATCHDAY_FAILUR
 export const fetchSingleLeagueStandings = createAction<number | undefined>(FETCH_SINGLE_LEAGUE_STANDINGS)
 export const setSingleLeagueStandings = createAction<LeagueStandings>(SET_SINGLE_LEAGUE_STANDINGS)
 export const singleLeagueStandingsFailure = createAction<AppError>(SINGLE_LEAGUE_STANDINGS_FAILURE)
+
+export const fetchBestScorers = createAction<string | undefined>(FETCH_BEST_SCORERS)
+export const setBestScorers = createAction<BestScorer[]>(SET_BEST_SCORERS)
+export const bestScorersFailure = createAction<AppError>(BEST_SCORERS_FAILURE)
+export const setSingleScorer = createAction<BestScorer>(SET_SINGLE_SCORER);

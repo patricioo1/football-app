@@ -14,6 +14,9 @@ export const SingleLeague = styled.div`
   -webkit-box-shadow: 0px 0px 15px 0px rgba(210, 210, 210, 1);
   -moz-box-shadow: 0px 0px 15px 0px rgba(210, 210, 210, 1);
   box-shadow: 0px 0px 15px 0px rgba(210, 210, 210, 1);
+  @media (max-width: 360px) {
+    width: 340px;
+  }
 `
 
 export const CountryFlag = styled.img`

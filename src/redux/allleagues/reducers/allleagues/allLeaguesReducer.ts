@@ -15,10 +15,8 @@ const initialState: State = {
 }
 
 export const allLeaguesReducer = (state: undefined | State, action: AllLeaguesAction): State => {
-  if (!state) {
-    return initialState
-  }
-  switch(action.type) {
+  if (!state) return initialState;
+  switch(action?.type) {
     case actionTypes.FETCH_ALL_LEAGUES_REQUEST:
       return {
         ...state
@@ -26,13 +24,13 @@ export const allLeaguesReducer = (state: undefined | State, action: AllLeaguesAc
     case actionTypes.FETCH_ALL_LEAGUES_SUCCESS:
       return {
         ...state,
-        allLeagues: action.payload as AllLeaguesType[] | undefined | null,
+        allLeagues: action?.payload as AllLeaguesType[] | undefined | null,
         loading: false
       }
     case actionTypes.FETCH_ALL_LEAGUES_FAILURE:
       return {
         ...state,
-        error: action.payload as AppError
+        error: action?.payload as AppError
       }
     default:
       return state

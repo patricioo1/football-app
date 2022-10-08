@@ -19,4 +19,7 @@ export const SingleLeagueNavigation = styled(Tabs)`
   .ant-tabs-tab {
     width: 33%;
   }
+  .ant-tabs-nav {
+    position: relative;
+  }
 `

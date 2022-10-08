@@ -22,7 +22,7 @@ export const matchDayReducer = (state: undefined | State, action: MatchdayAction
   if (!state) {
     return initialState
   }
-  switch (action.type) {
+  switch (action?.type) {
     case actionTypes.FETCH_MATCHDAY:
       return {
         ...state,
@@ -31,13 +31,13 @@ export const matchDayReducer = (state: undefined | State, action: MatchdayAction
     case actionTypes.SET_MATCHDAY:
       return {
         ...state,
-        matchDay: action.payload as MatchdayProperties[],
+        matchDay: action?.payload as MatchdayProperties[],
         loading: false
       }
     case actionTypes.FETCH_MATCHDAY_FAILURE:
       return {
         ...state,
-        error: action.payload as AppError
+        error: action?.payload as AppError
       }  
     default:
       return state

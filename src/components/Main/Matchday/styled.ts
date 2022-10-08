@@ -56,11 +56,10 @@ export const ButtonRight = styled(NavButtons)`
 
 export const MatchdayDate = styled.p`
   display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100px;
   font-weight: 600;
   color: #A9A9A9;
+  text-align: center;
 `
 
 export const SingleLeagueWrapper = styled.div`
@@ -75,6 +74,9 @@ export const SingleLeagueWrapper = styled.div`
   -webkit-box-shadow: 0px 0px 15px 0px rgba(210, 210, 210, 1);
   -moz-box-shadow: 0px 0px 15px 0px rgba(210, 210, 210, 1);
   box-shadow: 0px 0px 15px 0px rgba(210, 210, 210, 1);
+  @media (max-width: 360px) {
+    width: 340px;
+  }
 `
 
 export const LeagueTitle = styled.div`

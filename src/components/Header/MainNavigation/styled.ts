@@ -5,6 +5,9 @@ export const Nav = styled.div`
   justify-content: space-between;
   width: 100%;
   padding: 28px 30px 32px 30px;
+  @media (max-width: 360px) {
+    padding: 28px 20px 32px 20px
+  }
 `
 
 export const NavButton = styled.button`
