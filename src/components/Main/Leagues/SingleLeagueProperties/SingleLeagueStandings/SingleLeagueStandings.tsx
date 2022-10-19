@@ -1,27 +1,33 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { fetchSingleLeagueInfo } from '../../../../../redux/allleagues/actions/actions'
 import { RootState } from '../../../../../redux/rootReducer'
 import * as s from './styled'
-import { fetchSingleLeagueStandings } from '../../../../../redux/allleagues/actions/actions'
 
 const SingleLeagueStandings = () => {
-  const singleLeagueId = useSelector((state: RootState) => state.singleLeagueInfo.selectedLeague?.id)
-  const leagueName = useSelector((state: RootState) => state.standings.singleLeagueStandings?.competition)
-  const leagueStandings = useSelector((state: RootState) => state.standings.singleLeagueStandings?.standings[0].table);
-
-  const dispatch = useDispatch();
-
+  const leagueName = useSelector(
+    (state: RootState) =>
+      state?.singleLeagueInfo?.singleLeague?.competition?.name
+  )
+  const leagueStandings = useSelector(
+    (state: RootState) =>
+      state?.singleLeagueInfo?.singleLeague?.standings[0].table
+  )
+  const latestLeagueIdFromUrl = window.location.href.split('/').at(-1)
+  const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(fetchSingleLeagueStandings(singleLeagueId))
-  }, [dispatch, singleLeagueId])
+    if (latestLeagueIdFromUrl) {
+      dispatch(fetchSingleLeagueInfo(+latestLeagueIdFromUrl))
+    }
+  }, [dispatch])
 
-   return (
+  return (
     <s.StandingsWrapper>
       <s.LeagueName>
-        <s.LeagueTitle>{leagueName?.name}</s.LeagueTitle>
+        <s.LeagueTitle>{leagueName}</s.LeagueTitle>
         <s.LeagueTableProperties>
           <s.LeagueTablePropertiesSt>
-            <span style={{marginRight: '10px'}}>#</span>
+            <span style={{ marginRight: '10px' }}>#</span>
             <p>Team</p>
           </s.LeagueTablePropertiesSt>
           <s.LeagueTablePropertiesNd>
@@ -40,7 +46,7 @@ const SingleLeagueStandings = () => {
           <s.SingleTeamStats>
             <s.TeamPoints>{league.playedGames}</s.TeamPoints>
             <s.TeamPoints>{league.goalDifference}</s.TeamPoints>
-            <s.TeamPoints points='true'>{league.points}</s.TeamPoints>
+            <s.TeamPoints points="true">{league.points}</s.TeamPoints>
           </s.SingleTeamStats>
         </s.SingleLeagueProperties>
       ))}
