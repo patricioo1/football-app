@@ -20,12 +20,11 @@ export const singleLeagueBestScorersReducer = (
   state: undefined | State,
   action: BestScorersActions
 ): State => {
-  console.log(action.payload)
   if (!state) return initialState
   switch (action?.type) {
     case actionTypes.FETCH_BEST_SCORERS:
       return {
-        ...state,
+        ...state
       }
     case actionTypes.SET_BEST_SCORERS:
       return {

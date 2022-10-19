@@ -9,8 +9,12 @@ import * as s from './styled'
 
 const SingleLeagueProperties: React.FC = () => {
   const [tab, setTab] = useState('1')
-  const loading = useSelector((state: RootState) => state.singleLeagueInfo.loading)
-  const error = useSelector((state: RootState) => state.singleLeagueInfo.error)
+  const loading = useSelector(
+    (state: RootState) => state?.singleLeagueInfo?.loading
+  )
+  const error = useSelector(
+    (state: RootState) => state?.singleLeagueInfo?.error
+  )
   const { TabPane } = Tabs
 
   const loadedData: boolean = !loading && error === null

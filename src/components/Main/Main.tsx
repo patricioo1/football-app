@@ -7,7 +7,6 @@ import Matchday from './Matchday/Matchday'
 import SingleScorerInfo from './Leagues/SingleLeagueProperties/SingleLeagueBestScorers/SingleScorerInfo/SingleScorerInfo'
 import MainNavigation from '../Header/MainNavigation/MainNavigation'
 
-
 const Main: React.FC = () => (
   <ContentWrapper>
     <MainNavigation />
@@ -15,7 +14,10 @@ const Main: React.FC = () => (
       <Route path="/leagues" element={<Leagues />} />
       <Route path="/" element={<Matchday />} />
       <Route path="/league/:id" element={<SingleLeagueProperties />} />
-      <Route path="/league/:id/best-scorers/:id" element={<SingleScorerInfo />} />
+      <Route
+        path="/league/:id/best-scorers/:id"
+        element={<SingleScorerInfo />}
+      />
     </Routes>
   </ContentWrapper>
 )

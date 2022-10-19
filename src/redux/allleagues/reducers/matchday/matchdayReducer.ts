@@ -5,9 +5,9 @@ import { MatchdayActions } from './actionTypes'
 type DateParams = Date | null | undefined | string
 
 type State = {
-  matchDay: MatchdayProperties[] | null | undefined,
-  loading: boolean,
-  date: DateParams,
+  matchDay: MatchdayProperties[] | null | undefined
+  loading: boolean
+  date: DateParams
   error: AppError | null | undefined
 }
 
@@ -15,10 +15,13 @@ const initialState: State = {
   matchDay: [],
   loading: true,
   date: null,
-  error: null
+  error: null,
 }
 
-export const matchDayReducer = (state: undefined | State, action: MatchdayActions): State => {
+export const matchDayReducer = (
+  state: undefined | State,
+  action: MatchdayActions
+): State => {
   if (!state) {
     return initialState
   }
@@ -26,19 +29,19 @@ export const matchDayReducer = (state: undefined | State, action: MatchdayAction
     case actionTypes.FETCH_MATCHDAY:
       return {
         ...state,
-        date: action.payload as DateParams
+        date: action.payload as DateParams,
       }
     case actionTypes.SET_MATCHDAY:
       return {
         ...state,
         matchDay: action?.payload as MatchdayProperties[],
-        loading: false
+        loading: false,
       }
     case actionTypes.FETCH_MATCHDAY_FAILURE:
       return {
         ...state,
-        error: action?.payload as AppError
-      }  
+        error: action?.payload as AppError,
+      }
     default:
       return state
   }
