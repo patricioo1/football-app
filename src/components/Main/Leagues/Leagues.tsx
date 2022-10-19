@@ -24,10 +24,15 @@ const Leagues: React.FC = () => {
   const loadedData = !loading && error === null && leagues
 
   if (loading) return <Loading />
-  if (error) return <Error><p>{error}</p></Error>
-  return (
-    loadedData ? <>{
-      leagues.map((item) => {
+  if (error)
+    return (
+      <Error>
+        <p>{error}</p>
+      </Error>
+    )
+  return loadedData ? (
+    <>
+      {leagues.map(item => {
         const countryFlag = item.area.ensignUrl
         return (
           <s.SingleLeague
@@ -42,16 +47,18 @@ const Leagues: React.FC = () => {
             </p>
             {countryFlag ? (
               <s.CountryFlag src={countryFlag} alt="Flaga kraju" />
-            ) : <p>{item.code}</p>}
+            ) : (
+              <p>{item.code}</p>
+            )}
             <s.CountryCode>
               <p>{item.area.countryCode}</p>
             </s.CountryCode>
           </s.SingleLeague>
         )
-      })
-     }</> : (
-      <p>{error}</p>
-    )
+      })}
+    </>
+  ) : (
+    <p>{error}</p>
   )
 }
 

@@ -8,13 +8,14 @@ export const StandingsWrapper = styled.div`
   width: 100%;
   height: auto;
   min-height: 50vh;
+  font-size: 12px;
 `
 
 export const LeagueName = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  padding: 0 5px 0 5px;
+  padding: 0 5px;
   width: 100%;
   height: 80px;
 `
@@ -56,6 +57,7 @@ export const SingleLeagueProperties = styled.div`
 
 export const SingleTeamName = styled.div`
   display: flex;
+  align-items: center;
   flex: 2;
 `
 
@@ -71,6 +73,7 @@ export const TeamPosition = styled.p`
   align-items: center;
   margin-right: 5px;
   background-color: rgba(67,97,238,.3);
-  width: 20px;
+  padding: 5px;
+  width: 25px;
   border-radius: 4px;
 `

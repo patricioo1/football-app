@@ -2,7 +2,7 @@ import {
   LeagueName,
   CurrentSeason,
   Standings,
-} from '../../redux/allleagues/reducers/singleLeagueInfo/singleLeagueStandings/standingsTypes'
+} from '../../redux/allleagues/reducers/singleLeagueInfo/singleLeagueInfo'
 
 export type AllLeaguesType = {
   id: number
@@ -52,7 +52,7 @@ export type SelectedLeagueType = {
   }
 }
 
-export type LeagueStandings = {
+export type LeagueInfo = {
   competition: LeagueName
   season: CurrentSeason
   standings: Standings[]

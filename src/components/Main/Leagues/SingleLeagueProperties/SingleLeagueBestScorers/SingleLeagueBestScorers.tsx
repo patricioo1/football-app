@@ -13,7 +13,7 @@ import PlayerImage from '../../../../../images/football_player.svg'
 
 const SingleLeagueBestScorers: React.FC = () => {
   const leagueCode = useSelector(
-    (state: RootState) => state.singleLeagueInfo.selectedLeague?.code
+    (state: RootState) => state?.singleLeagueInfo?.selectedLeague?.code
   )
   const bestScorers = useSelector(
     (state: RootState) => state.bestScorers.bestScorers
@@ -21,7 +21,7 @@ const SingleLeagueBestScorers: React.FC = () => {
   const loading = useSelector((state: RootState) => state.bestScorers.loading)
   const error = useSelector((state: RootState) => state.bestScorers.error)
   const leagueId = useSelector(
-    (state: RootState) => state.singleLeagueInfo.selectedLeague?.id
+    (state: RootState) => state?.singleLeagueInfo?.selectedLeague?.id
   )
   const dispatch = useDispatch()
   const navigate = useNavigate()

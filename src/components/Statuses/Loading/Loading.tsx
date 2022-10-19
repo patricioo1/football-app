@@ -1,4 +1,3 @@
-import React from 'react'
 import { SpinnerCircular } from 'spinners-react'
 import * as s from './styled'
 
